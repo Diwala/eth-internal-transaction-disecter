@@ -1,0 +1,28 @@
+{
+  "name": "eth-internal-transaction-disecter",
+  "version": "0.1.0",
+  "description": "This library lets you have a look at internal transactions on Ethereum chains. It contains recipies such as internal transactions for uPort, on the rinkeby net",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": ""
+  },
+  "keywords": [
+    "ethereum",
+    "blockchain",
+    "transactions",
+    "internal"
+  ],
+  "contributors": [
+    "Snorrre Lothar von Gohren Edwin <snorre.edwin@gmail.com> (https://github.com/Snorlock)",
+    "Malith Wijenayake <malith.w@fidenz.com> (https://github.com/fidenz-malith)"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "abi-decoder": "^1.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "web3": "^1.0.0-beta.33"
+  }
+}
