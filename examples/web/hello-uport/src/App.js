@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { uport } from 'ethereum-internal-transactions';
+import { uport } from 'eth-internal-transaction-disecter';
+import Web3 from 'web3'
+const web3 = new Web3('https://rinkeby.infura.io/ldQyXJ1VEPzix4OQ7cNT');
 const exampleContract =
 [{"constant":false,"inputs":[{"name":"_hashStr","type":"string"}],"name":"addCert","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"hashStr","type":"string"}],"name":"certInfo","type":"event"},{"constant":true,"inputs":[{"name":"","type":"address"},{"name":"","type":"uint256"}],"name":"certificates","outputs":[{"name":"hash_str","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}]
 
@@ -17,15 +18,12 @@ class App extends Component {
   }
 
   getTransaction() {
-    const transaction = uport(exampleContract, txHash).then(item=>{
+    uport(exampleContract, txHash, web3).then(item=>{
       this.setState({transaction:item})
     })
   }
 
   render() {
-    const Trans = JSON.stringify(this.state.transaction);
-    console.log(Trans)
-    console.log(this.state)
     return (
       <div className="App">
         <header className="App-header">
@@ -34,7 +32,7 @@ class App extends Component {
         <p className="App-intro" onClick={this.getTransaction}>
           Fetch
         </p>
-        <div>{Trans}</div>
+        <div>{JSON.stringify(this.state.transaction)}</div>
       </div>
     );
   }

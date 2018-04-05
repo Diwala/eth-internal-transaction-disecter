@@ -1,9 +1,7 @@
 var decoder = require('../../lib/index');
 var uportContracts = require('./contracts');
-var Web3 = require('web3');
-const web3 = new Web3('https://rinkeby.infura.io/ldQyXJ1VEPzix4OQ7cNT');
 
-async function getInternalTransactionData(abi, trxHash) {
+async function getInternalTransactionData(abi, trxHash, web3) {
   const abis = {
     IdentityManagerABI: uportContracts.IdentityManagerABI,
     TxRelayABI: uportContracts.TxRelayABI,
