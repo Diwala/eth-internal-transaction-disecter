@@ -73,6 +73,9 @@ class App extends Component {
           </div>
           <div className="txn">{output(this.state.transaction)}</div>
         </div>
+        <footer>
+          Made with 💜 by <a href="https://diwala.io/" target="_blank">https://diwala.io/</a>
+        </footer>
       </div>
     );
   }

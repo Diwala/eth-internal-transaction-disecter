@@ -26,3 +26,48 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+.content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content input{
+  margin:10px;
+  border: 0px solid;
+  height: 34px;
+  width: 200px;
+  font-size: 21px;
+  background-color: lightgrey;
+  padding: 10px;
+}
+
+.button {
+  margin-top: 20px;
+  background-color: black;
+  color: white;
+  width: 80px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.txn {
+  margin-top: 20px;
+}
+
+footer {
+  background-color: #222;
+  color: white;
+  position: absolute;
+  bottom:0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
