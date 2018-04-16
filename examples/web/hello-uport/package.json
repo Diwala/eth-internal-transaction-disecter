@@ -7,7 +7,7 @@
     "react-dom": "^16.3.1",
     "react-scripts": "1.1.4",
     "web3": "^1.0.0-beta.33",
-    "eth-internal-transaction-disecter": "^0.1.0",
+    "eth-internal-transaction-disecter": "^0.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
