@@ -7,7 +7,7 @@ function init(abis, web3) {
   let decoderInstances = {}
   web3Instance = web3;
   for (var name in abis) {
-    const abiInstance = Object.create(abiDecoder);
+    const abiInstance = Object.assign({}, abiDecoder);
     abiInstance.addABI(abis[name])
     decoderInstances[name] = abiInstance
   }

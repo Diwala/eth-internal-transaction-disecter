@@ -1,3 +1,4 @@
+require("babel-polyfill");
 var uport = require('./recipies/uport')
 var core = require('./lib')
 
