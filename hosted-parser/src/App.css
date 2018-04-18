@@ -71,3 +71,11 @@ a {
   text-decoration: none;
   color: white;
 }
+
+.articles {
+  position: absolute;
+  bottom: 70px;
+}
+.articles a {
+  color: black;
+}

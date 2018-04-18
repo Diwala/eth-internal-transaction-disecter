@@ -72,6 +72,11 @@ class App extends Component {
             Find
           </div>
           <div className="txn">{output(this.state.transaction)}</div>
+          <div className="articles">
+            You can read more about the reasoning for this here: <br/><br/>
+            <a href="https://medium.com/@chim/d5b171f7068f">https://medium.com/diwala/uport-transactions-c8fc4e31d9</a> <br/>
+            <a href="https://medium.com/diwala/uport-transactions-c8fc4e31d9">https://medium.com/diwala/uport-transactions-c8fc4e31d9</a>
+          </div>
         </div>
         <footer>
           Made with <span role="img">💜</span> by <a href="https://diwala.io/" target="_blank" rel="noopener noreferrer">https://diwala.io/</a>
