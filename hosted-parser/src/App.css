@@ -5,6 +5,10 @@ body {
    font-family: 'Open Sans';
 }
 
+*:focus {
+    outline: none;
+}
+
 .main {
     position: relative;
 }
@@ -108,6 +112,10 @@ p {
   padding: 15px;
 }
 
+.button:focus{
+    outline: none;
+}
+
 .button {
     position: relative;
     display: block;
@@ -120,6 +128,7 @@ p {
     font-size: 14px;
     height: 30px;
     border-radius: 20px;
+    border: none;
 }
 
 .output{

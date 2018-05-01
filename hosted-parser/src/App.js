@@ -103,12 +103,12 @@ class App extends Component {
                 </div>  
                 <div className="articles">
                     <p>You can read more about the reasoning for this here:</p>
-                    <a href="https://medium.com/diwala/uport-transactions-c8fc4e31d9">https://medium.com/diwala/uport-transactions-c8fc4e31d9</a>
+                    <a href="https://medium.com/diwala/uport-transactions-c8fc4e31d9" target="_blank" rel="noopener noreferrer">https://medium.com/diwala/uport-transactions-c8fc4e31d9</a>
                 </div>
             </div>
         </div>
         <footer>
-              Made with <span role="img">💜</span> by <a href="https://diwala.io/" target="_blank" rel="noopener noreferrer">https://diwala.io/</a>
+              Made with <span role="img" aria-label="Heart emoji">💜</span> by <a target="_blank" rel="noopener noreferrer" href="https://diwala.io/" >https://diwala.io/</a>
         </footer>
         </div>
     )
