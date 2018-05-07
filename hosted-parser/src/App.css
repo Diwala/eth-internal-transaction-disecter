@@ -1,16 +1,56 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+
+
+body {
+   font-family: 'Open Sans';
 }
 
+*:focus {
+    outline: none;
+}
+
+.main {
+    position: relative;
+}
+
+.container{
+    min-height: calc(100vh - 159px);
+    position: relative;
+}
+
+p {
+    font-size: 0.8em;
+    font-weight: 100;
+}
+
+::placeholder {
+    color: #a0a0a0;
+    opacity: 1; /* Firefox */
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.row {
+    width: 88%;
+}
+
+.logo{
+    position: relative;
+    display: block;
+    margin: 81px auto;
+}
+
+/*
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
+*/
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+  text-align: center;
+  background-color: #3f3f3f;
+  padding: 30px 20px 20px 20px;
   color: white;
 }
 
@@ -22,35 +62,129 @@
   font-size: large;
 }
 
+/*
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+*/
 
 
 .content {
   display: flex;
   align-items: center;
   flex-direction: column;
+
 }
 
 .content input{
-  margin:10px;
-  border: 0px solid;
-  height: 34px;
-  width: 200px;
-  font-size: 21px;
-  background-color: lightgrey;
-  padding: 10px;
+  margin: 10px auto;
+  margin-bottom: 5px;
+  border: none;
+  height: 40px;
+  width: 100%;
+  background-color: #f2f2f2;  
+    font-weight: 200;
+  padding: 15px;
+    font-size: 13px;
+
+}
+
+.col-lg-6{
+    padding-left: 0px;
+    padding-right: 5px;
+}
+
+
+.col-sm-6{
+    padding: 3px;
+    height: 400px;
+    color: #a0a0a0;
+}
+
+.content textarea{
+  background-color: #f2f2f2;
+    border: none;
+    resize: none;
+    font-size: 13px;
+    font-weight: 200;
+    width: 100%;
+  padding: 15px;
+}
+
+.button:focus{
+    outline: none;
 }
 
 .button {
-  margin-top: 20px;
-  background-color: black;
+    position: relative;
+    display: block;
+    margin: 10px auto 0 auto;
+    background-color: #480076;
   color: white;
-  width: 80px;
-  height: 50px;
-  line-height: 50px;
+  width: 120px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 14px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+}
+
+.output{
+    color: #a0a0a0;
+  margin-top: 10px;
+  border: none;
+  height: 247px;
+  width: 100%;
+  background-color: #f2f2f2;
+    padding: 10px 40px;
+    font-size: 1.1em;
+    font-weight: 100;
+}
+
+.viewer {
+    background-color: #fff;
+}
+
+.outputtxn{
+    color: #a0a0a0;
+    overflow: auto;
+  margin-top: 10px;
+  border: none;
+  width: 100%;
+  background-color: #f2f2f2;
+    padding: 10px 10px;
+    font-size: 1.1em;
+    font-weight: 100;
+}
+
+.outputtxn p{
+    color: #000;
+    overflow: auto;
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 0;
+    padding-top: 0;
+}
+
+.outputtxn p:nth-child(2){
+    margin-bottom: 10px;
+    font-weight: 400;    
+}
+
+.outputtxn p:nth-child(4){
+    margin-bottom: 5px;
+}
+
+.react-json-view{
+    text-align: left;
+    padding-left: 30px;
+    overflow: auto;
+}
+
+.articles p{
+    font-weight: bold;
 }
 
 .txn {
@@ -58,24 +192,28 @@
 }
 
 footer {
-  background-color: #222;
-  color: white;
-  position: absolute;
-  bottom:0;
+    text-align: center;
+    position: absolute;
+    font-size: 0.7rem;
+  color: black;
+  bottom: 20px;
   width: 100%;
-  height: 60px;
-  line-height: 60px;
 }
 
-a {
-  text-decoration: none;
-  color: white;
+footer a{
+    text-decoration: none;
+    color: black;
+}
+
+.articles a {
+    font-size: 0.9rem;
+  text-decoration: underline;
+  color: #6e6e6e;
 }
 
 .articles {
-  position: absolute;
-  bottom: 70px;
+  margin-top: 100px;
+    text-align: center;
+    padding-bottom: 70px;
 }
-.articles a {
-  color: black;
-}
+
