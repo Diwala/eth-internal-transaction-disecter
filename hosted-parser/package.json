@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.1.0",
-    "eth-internal-transaction-disecter": "^0.1.4",
+    "eth-internal-transaction-disecter": "^0.1.6",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-json-view": "^1.16.1",

@@ -1,6 +1,6 @@
 {
   "name": "eth-internal-transaction-disecter",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "description": "This library lets you have a look at internal transactions on Ethereum chains. It contains recipies such as internal transactions for uPort, on the rinkeby net",
   "main": "dist/index.js",
   "scripts": {
