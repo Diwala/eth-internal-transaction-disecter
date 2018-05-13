@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
 
 
 body {
@@ -28,6 +28,15 @@ p {
     opacity: 1; /* Firefox */
     font-size: 18px;
     font-weight: 100;
+}
+
+.card-header {
+    padding: 0;
+    font-weight: 600;
+}
+
+.card-body {
+    background-color: #f2f2f2;
 }
 
 .row {
@@ -131,6 +140,35 @@ p {
     border: none;
 }
 
+.btn-acc {
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    padding: 0;
+}
+
+.btn-acc:focus {
+    outline: none;
+}
+
+.btn-acc:hover {
+    
+}
+
+.btn-acc:after {
+    content: "\25BC";
+    margin-left: 15px;
+    font-size: 15px;
+    color: #848484;
+}
+
+.collapsed:after {
+    content: "\25B6";
+    margin-left: 15px;
+    font-size: 15px;
+    color: #848484;
+}
+
 .output{
     color: #a0a0a0;
   margin-top: 10px;
@@ -181,6 +219,10 @@ p {
     text-align: left;
     padding-left: 30px;
     overflow: auto;
+}
+
+.accordion {
+    text-align: center;
 }
 
 .articles p{

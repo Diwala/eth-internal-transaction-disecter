@@ -4,7 +4,10 @@ import { uport } from 'eth-internal-transaction-disecter';
 import Web3 from 'web3'
 import ReactJson from 'react-json-view'
 import logo from './loader.gif'
+
 const web3 = new Web3('https://rinkeby.infura.io/ldQyXJ1VEPzix4OQ7cNT');
+
+
 
 class App extends Component {
   constructor(props) {
@@ -13,7 +16,7 @@ class App extends Component {
       hasTransaction: false,
       name: "",
       txHash: "",
-      transaction: {},
+      transaction: null,
       fetch: false
     }
     this.getTransaction = this.getTransaction.bind(this)
@@ -27,11 +30,13 @@ class App extends Component {
       txHash: txnHash,
       fetch:true,
       failed: false,
-      hasTransaction: false
+      hasTransaction: false,
+      transaction: null
     })
 
     if(abi && txnHash) {
-      uport(abi, txnHash, web3).then(item=>{
+      uport.getInternalTransactions(abi, txnHash, web3).then(item=>{
+          console.log(item);
         this.setState({hasTransaction: true, transaction:item, fetch:false})
       }).catch( e => {
         console.log(e)
@@ -41,6 +46,7 @@ class App extends Component {
       this.setState({failed:{message:"You need to fill in inputs!!!"}, fetch:false})
     }
   }
+  
 
   render() {
     const output = (obj) => {
@@ -57,12 +63,49 @@ class App extends Component {
       }
       else {
         return (<div className="outputtxn">
-                    <p>TxHash :</p>
-                    <p>{this.state.txHash}</p>
-                    <p>Name :</p>
-                    <p>{this.state.name}</p>
-                    <div className="viewer">
-                        <ReactJson src={this.state.transaction} collapseStringsAfterLength={20} iconStyle="circle" />
+                    <div className="accordion">
+                      <div className="card">
+                        <div className="card-header">
+                          <button class="btn-acc collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Stage 1
+                          </button>
+                        </div>
+                        <div id="collapseOne" className="collapse" data-parent=".accordion">
+                          <div className="card-body">
+
+                          </div>
+                        </div>
+                      </div>
+                      <div className="card">
+                        <div className="card-header">
+                          <button class="btn-acc collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                                Stage 2
+                          </button>
+                        </div>
+                        <div id="collapseTwo" className="collapse" data-parent=".accordion">
+                          <div className="card-body">
+
+                          </div>
+                        </div>
+                      </div>
+                      <div className="card">
+                        <div className="card-header">
+                          <button class="btn-acc" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
+                                Stage 3
+                          </button>
+                        </div>
+                        <div id="collapseThree" className="collapse show" data-parent=".accordion">
+                          <div className="card-body">
+                            <p>TxHash :</p>
+                            <p>{this.state.txHash}</p>
+                            <p>Name :</p>
+                            <p>{this.state.name}</p>
+                            <div className="viewer">
+                                <ReactJson src={this.state.transaction} collapseStringsAfterLength={20} iconStyle="circle" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                 </div>)
       }
@@ -87,20 +130,25 @@ class App extends Component {
                         <button className="button" onClick={this.getTransaction}>
                             FIND
                         </button>
+                        
                     </div>
                     <div className="col-lg-6">
                         {(this.state.hasTransaction)? 
-                            output(this.state.transaction):
+                            output(this.state.transaction)
+                        :
                             ((this.state.fetch)?
                              (<div className="outputtxn">
                                 <img className="logo" src={logo} alt="loader"/>
-                             </div>):
+                             </div>)
+                             :
                              (<div className="output">
                                 Please provide TxnHash and your contract ABI to see decoded transaction
                               </div>))
                         }
                     </div>
-                </div>  
+                </div>
+                
+                
                 <div className="articles">
                     <p>You can read more about the reasoning for this here:</p>
                     <a href="https://medium.com/diwala/uport-transactions-c8fc4e31d9" target="_blank" rel="noopener noreferrer">https://medium.com/diwala/uport-transactions-c8fc4e31d9</a>
