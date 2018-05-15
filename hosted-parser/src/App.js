@@ -7,14 +7,11 @@ import logo from './loader.gif'
 
 const web3 = new Web3('https://rinkeby.infura.io/ldQyXJ1VEPzix4OQ7cNT');
 
-
-
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       hasTransaction: false,
-      name: "",
       txHash: "",
       transaction: null,
       fetch: false
@@ -26,7 +23,6 @@ class App extends Component {
     const abi = JSON.parse(document.getElementById("abi").value);
     const txnHash = document.getElementById("txnHash").value;
     this.setState({
-      name: abi[0].name,
       txHash: txnHash,
       fetch:true,
       failed: false,
@@ -36,8 +32,16 @@ class App extends Component {
 
     if(abi && txnHash) {
       uport.getInternalTransactions(abi, txnHash, web3).then(item=>{
-          console.log(item);
-        this.setState({hasTransaction: true, transaction:item, fetch:false})
+        this.setState({
+            hasTransaction: true, 
+            transaction:item, 
+            fetch:false,
+            transactionName:{
+                first:item.relayTransaction.name,
+                second:item.identityTransaction.name,
+                third:item.endTransaction.name
+            }
+        });
       }).catch( e => {
         console.log(e)
         this.setState({failed:{message:"Invalid objects in the input", error: e}})
@@ -66,42 +70,54 @@ class App extends Component {
                     <div className="accordion">
                       <div className="card">
                         <div className="card-header">
-                          <button class="btn-acc collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          <button className="btn-acc collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 Stage 1
                           </button>
                         </div>
-                        <div id="collapseOne" className="collapse" data-parent=".accordion">
-                          <div className="card-body">
-
-                          </div>
-                        </div>
-                      </div>
-                      <div className="card">
-                        <div className="card-header">
-                          <button class="btn-acc collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
-                                Stage 2
-                          </button>
-                        </div>
-                        <div id="collapseTwo" className="collapse" data-parent=".accordion">
-                          <div className="card-body">
-
-                          </div>
-                        </div>
-                      </div>
-                      <div className="card">
-                        <div className="card-header">
-                          <button class="btn-acc" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
-                                Stage 3
-                          </button>
-                        </div>
-                        <div id="collapseThree" className="collapse show" data-parent=".accordion">
+                        <div id="collapseOne" className="collapse">
                           <div className="card-body">
                             <p>TxHash :</p>
                             <p>{this.state.txHash}</p>
                             <p>Name :</p>
-                            <p>{this.state.name}</p>
+                            <p>{this.state.transactionName.first}</p>
                             <div className="viewer">
-                                <ReactJson src={this.state.transaction} collapseStringsAfterLength={20} iconStyle="circle" />
+                                <ReactJson src={this.state.transaction.relayTransaction} collapseStringsAfterLength={20} iconStyle="circle" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="card">
+                        <div className="card-header">
+                          <button className="btn-acc collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                                Stage 2
+                          </button>
+                        </div>
+                        <div id="collapseTwo" className="collapse">
+                          <div className="card-body">
+                            <p>TxHash :</p>
+                            <p>{this.state.txHash}</p>
+                            <p>Name :</p>
+                            <p>{this.state.transactionName.second}</p>
+                            <div className="viewer">
+                                <ReactJson src={this.state.transaction.identityTransaction} collapseStringsAfterLength={20} iconStyle="circle" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="card">
+                        <div className="card-header">
+                          <button className="btn-acc" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
+                                Stage 3
+                          </button>
+                        </div>
+                        <div id="collapseThree" className="collapse show">
+                          <div className="card-body">
+                            <p>TxHash :</p>
+                            <p>{this.state.txHash}</p>
+                            <p>Name :</p>
+                            <p>{this.state.transactionName.third}</p>
+                            <div className="viewer">
+                                <ReactJson src={this.state.transaction.endTransaction} collapseStringsAfterLength={20} iconStyle="circle" />
                             </div>
                           </div>
                         </div>

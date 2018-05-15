@@ -1,5 +1,6 @@
 require("babel-polyfill");
-var uport = require('./recipies/uport')
+//var uport = require('./recipies/uport')
+import uport from 'recipies/uport/index';
 var core = require('./lib')
 
 module.exports = {
