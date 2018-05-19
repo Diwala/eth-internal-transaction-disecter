@@ -34,6 +34,6 @@ async function getInternalTransactions(abi, trxHash, web3) {
 }
 
 module.exports = {
-    getInternalTransactionData,
-    getInternalTransactions
-    };
+    getInternalTransactionData:getInternalTransactionData,
+    getInternalTransactions:getInternalTransactions
+}
