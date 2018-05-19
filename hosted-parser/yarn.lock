@@ -2670,9 +2670,9 @@ etag@~1.8.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
 
-eth-internal-transaction-disecter@^0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/eth-internal-transaction-disecter/-/eth-internal-transaction-disecter-0.1.6.tgz#49b852a5373f4240cca18fc92aa8a43e0eb5ac3d"
+eth-internal-transaction-disecter@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/eth-internal-transaction-disecter/-/eth-internal-transaction-disecter-0.2.0.tgz#a2388f9135d3155caa3221198ceb79525a4eb93e"
   dependencies:
     abi-decoder "git+https://github.com/vongohren/abi-decoder.git"
     babel-polyfill "^6.26.0"

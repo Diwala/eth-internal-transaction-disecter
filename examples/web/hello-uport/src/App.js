@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   getTransaction() {
-    uport(exampleContract, txHash, web3).then(item=>{
+    uport.getInternalTransactions(exampleContract, txHash, web3).then(item=>{
       this.setState({transaction:item})
     })
   }
